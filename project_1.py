@@ -23,10 +23,10 @@ import re
 username, password, entered_username, entered_password = '', '', '', ''
 
 # List of taken usernames
-unacceptable_usernames = ['administrator', 'admin', 'root', 'supervisor', 'sup123', 'jalindu']
+taken_usernames = ['admin', 'admin123','root']
 
 # Acceptable characters in username input
-acceptable_username_characters = '0123456789abcdefghijklmnopqrstuvwxyz_'
+username_characters = '0123456789abcdefghijklmnopqrstuvwxyz_'
 
 # Acceptable special characters in password input
 acceptable_password_characters = '!?@#$^&*_-'
@@ -43,31 +43,46 @@ while True:
     print(entered_password)
     break
 
-# Begin username testing
+# Begin username testing to check for whether it's taken
 
-if entered_username not in unacceptable_usernames:
+if entered_username not in taken_usernames:
     print(message_list[0])
 
 else:
     print(message_list[3])
 
 
-# Test password
-for char in entered_password:
-    if(char.isdigit()):
+# Test for whether username contains acceptable characters
+for t in entered_username:
+    if(t.isdigit()):
         num = True
-    if(char.islower()):
+    if(t.islower()):
         lowercase = True
-    if(char.isupper()):
-        uppercase = True
-    if(not char.isalnum()):
+    if(t.isupper()):
+        uppercase = False
+    if(not t.isalnum()):
         special = True
         print(message_list[0])
     else:
         print(message_list[3])
 
-
-
-
-
-
+# Begin password testing
+# Test for length of characters in entered password
+if len(entered_password) >= 8:
+    print(entered_password)
+else:
+    print(message_list[4])
+    
+# Test for acceptable characters in password input
+for t in entered_password:
+    if(t.isdigit()):
+        num = True
+    if(t.islower()):
+        lowercase = True
+    if(t.isupper()):
+        uppercase = True
+    if(not t.isalnum()):
+        special = True
+        print(message_list[0])
+    else:
+        print(message_list[3])
