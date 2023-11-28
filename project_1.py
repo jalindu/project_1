@@ -37,17 +37,36 @@ message_list = ['Sign up successful', 'Login successful', 'Username taken','Inva
 # Prompt user to sign up on website
 
 while True:
-    entered_username = input("Please enter your username: ")
-    entered_password = input("Please enter your password: ")
+    entered_username = input("Please enter your username: ")# Get inputs
+    print(entered_username)
+    entered_password = input("Please enter your password: ")#  Get inputs
+    print(entered_password)
+    break
 
-# Test username
-if entered_username in unacceptable_usernames:
+# Begin username testing
+
+if entered_username not in unacceptable_usernames:
+    print(message_list[0])
+
+else:
     print(message_list[3])
-    continue
+
+
 # Test password
-if len(entered_password) >= 8:
-elif:
-return False
+for char in entered_password:
+    if(char.isdigit()):
+        num = True
+    if(char.islower()):
+        lowercase = True
+    if(char.isupper()):
+        uppercase = True
+    if(not char.isalnum()):
+        special = True
+        print(message_list[0])
+    else:
+        print(message_list[3])
+
+
 
 
 
