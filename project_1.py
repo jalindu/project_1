@@ -39,50 +39,51 @@ message_list = ['Sign up successful', 'Login successful', 'Username taken','Inva
 while True:
     entered_username = input("Please enter your username: ")# Get inputs
     print(entered_username)
-    entered_password = input("Please enter your password: ")#  Get inputs
-    print(entered_password)
-    break
+    
 
-# Begin username testing to check for whether it's taken
+    # Begin username testing to check for whether it's taken
 
-if entered_username not in taken_usernames:
-    print(message_list[0])
-
-else:
-    print(message_list[3])
-
-
-# Test for whether username contains acceptable characters
-for t in entered_username:
-    if(t.isdigit()):
-        num = True
-    if(t.islower()):
-        lowercase = True
-    if(t.isupper()):
-        uppercase = False
-    if(not t.isalnum()):
-        special = True
+    if entered_username not in taken_usernames:
         print(message_list[0])
+
     else:
         print(message_list[3])
+        continue
+
+    fail = False
+    # Test for whether username contains acceptable characters
+    for t in entered_username:
+        if t not in username_characters:
+            print(message_list[3])
+            fail = True
+            break
+    if fail:
+        continue
+    print(message_list[0])
+    break
 
 # Begin password testing
 # Test for length of characters in entered password
-if len(entered_password) >= 8:
-    print(entered_password)
-else:
-    print(message_list[4])
-    
-# Test for acceptable characters in password input
-for t in entered_password:
-    if(t.isdigit()):
-        num = True
-    if(t.islower()):
-        lowercase = True
-    if(t.isupper()):
-        uppercase = True
-    if(not t.isalnum()):
-        special = True
-        print(message_list[0])
-    else:
-        print(message_list[3])
+# if len(entered_password) >= 8:
+#     print(entered_password)
+# else:
+#     print(message_list[4])
+# while True:
+#     entered_password = input("Please enter your username: ")# Get inputs
+#     print(entered_password)
+#     entered_password = input("Please enter your password: ")#  Get inputs
+#     print(entered_password)
+#     break   
+# # Test for acceptable characters in password input
+# for t in entered_password:
+#     if(t.isdigit()):
+#         num = True
+#     if(t.islower()):
+#         lowercase = True
+#     if(t.isupper()):
+#         uppercase = True
+#     if(not t.isalnum()):
+#         special = True
+#         print(message_list[0])
+#     else:
+#         print(message_list[3])
