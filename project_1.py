@@ -29,7 +29,7 @@ taken_usernames = ['admin', 'admin123','root']
 username_characters = '0123456789abcdefghijklmnopqrstuvwxyz_'
 
 # Acceptable special characters in password input
-acceptable_password_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!?@#$^&*_-'
+password_symbols = '!?@#$^&*_-'
 
 # Appropriate messages to print for user guidance
 message_list = ['Sign up successful', 'Login successful', 'Username taken','Invalid username', 'Invalid password', 'Incorrect username or password']
@@ -61,27 +61,51 @@ while True:
     print(message_list[0])
     break
 
-# Begin password testing
-while True:
-    entered_password = input("Please enter your password: ")# Get inputs
-    print(entered_password)
-
-# Test for length of characters in entered password
-    if len(entered_password) >= 8:
-         print(entered_password)
+# Begin password testin
+entered_password = "Godbless@$"
+if t in entered_password():
+    if t.isupper():
+        print(message_list[1])
     else:
-        print(message_list[4])
-
-
- # Test for acceptable characters in password input
-    fail = False
-    # Test for whether username contains acceptable characters
-    for t in entered_password:
-        if t not in acceptable_password_characters:
-            print(message_list[4])
-            fail = True
-            break
-    if fail:
         continue
-    print(message_list[0])
-    break
+# Test for length of characters in entered password
+#    if len(entered_password) >= 8:
+#         print(entered_password)
+#    else:
+#        print(message_list[4])
+
+    
+#      print(message_list[0])
+#  # Test for acceptable characters in password input
+#     fail = False
+#     # Test for whether username contains acceptable characters
+#     for t in entered_password:
+#         if t not in acceptable_password_characters:
+#             print(message_list[4])
+#             fail = True
+#             break
+#     if fail:
+#         continue
+#     print(message_list[0])
+#    break
+
+def test_password(entered_password):
+    if len(entered_password) < 8:
+        print(message_list[4])
+    else:
+        print(message_list[0])
+
+#    for character in entered_password: # Recognize acceptable characters
+        # if character.islower():
+        #     break
+        # if character.isupper():
+        #     break
+        # if character.isdigit():
+        #     break
+        #     if character in symbols():
+        #         break
+   # print(message_list[0])
+
+
+
+#print(test_password ("Jalindu789@"))
