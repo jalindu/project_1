@@ -29,10 +29,10 @@ taken_usernames = ['admin', 'admin123','root']
 username_characters = '0123456789abcdefghijklmnopqrstuvwxyz_'
 
 # Acceptable special characters in password input
-acceptable_password_characters = '!?@#$^&*_-'
+acceptable_password_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!?@#$^&*_-'
 
 # Appropriate messages to print for user guidance
-message_list = ['Sign up successful', 'Login successful', 'Username taken','Invalid username', 'Invalid password''Incorrect username or password']
+message_list = ['Sign up successful', 'Login successful', 'Username taken','Invalid username', 'Invalid password', 'Incorrect username or password']
 
 # Prompt user to sign up on website
 
@@ -40,8 +40,7 @@ while True:
     entered_username = input("Please enter your username: ")# Get inputs
     print(entered_username)
     
-
-    # Begin username testing to check for whether it's taken
+    # Begin username testing to check for whether username is taken
 
     if entered_username not in taken_usernames:
         print(message_list[0])
@@ -63,27 +62,26 @@ while True:
     break
 
 # Begin password testing
+while True:
+    entered_password = input("Please enter your password: ")# Get inputs
+    print(entered_password)
+
 # Test for length of characters in entered password
-# if len(entered_password) >= 8:
-#     print(entered_password)
-# else:
-#     print(message_list[4])
-# while True:
-#     entered_password = input("Please enter your username: ")# Get inputs
-#     print(entered_password)
-#     entered_password = input("Please enter your password: ")#  Get inputs
-#     print(entered_password)
-#     break   
-# # Test for acceptable characters in password input
-# for t in entered_password:
-#     if(t.isdigit()):
-#         num = True
-#     if(t.islower()):
-#         lowercase = True
-#     if(t.isupper()):
-#         uppercase = True
-#     if(not t.isalnum()):
-#         special = True
-#         print(message_list[0])
-#     else:
-#         print(message_list[3])
+    if len(entered_password) >= 8:
+         print(entered_password)
+    else:
+        print(message_list[4])
+
+
+ # Test for acceptable characters in password input
+    fail = False
+    # Test for whether username contains acceptable characters
+    for t in entered_password:
+        if t not in acceptable_password_characters:
+            print(message_list[4])
+            fail = True
+            break
+    if fail:
+        continue
+    print(message_list[0])
+    break
