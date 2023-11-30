@@ -38,74 +38,26 @@ message_list = ['Sign up successful', 'Login successful', 'Username taken','Inva
 
 while True:
     entered_username = input("Please enter your username: ")# Get inputs
-    print(entered_username)
-    
+
     # Begin username testing to check for whether username is taken
 
-    if entered_username not in taken_usernames:
-        print(message_list[0])
-
-    else:
+    if entered_username in taken_usernames:
         print(message_list[3])
         continue
-
-    fail = False
-    # Test for whether username contains acceptable characters
-    for t in entered_username:
-        if t not in username_characters:
-            print(message_list[3])
-            fail = True
-            break
-    if fail:
-        continue
-    print(message_list[0])
+    
+    print("I am here")
     break
 
-# Begin password testin
-entered_password = "Godbless@$"
-if t in entered_password():
-    if t.isupper():
-        print(message_list[1])
-    else:
-        continue
-# Test for length of characters in entered password
-#    if len(entered_password) >= 8:
-#         print(entered_password)
-#    else:
-#        print(message_list[4])
-
-    
-#      print(message_list[0])
-#  # Test for acceptable characters in password input
-#     fail = False
-#     # Test for whether username contains acceptable characters
-#     for t in entered_password:
-#         if t not in acceptable_password_characters:
-#             print(message_list[4])
-#             fail = True
-#             break
-#     if fail:
-#         continue
-#     print(message_list[0])
-#    break
-
-def test_password(entered_password):
-    if len(entered_password) < 8:
-        print(message_list[4])
-    else:
-        print(message_list[0])
-
-#    for character in entered_password: # Recognize acceptable characters
-        # if character.islower():
-        #     break
-        # if character.isupper():
-        #     break
-        # if character.isdigit():
-        #     break
-        #     if character in symbols():
-        #         break
-   # print(message_list[0])
+    # fail = False
+    # # Test for whether username contains acceptable characters
+    # for t in entered_username:
+    #     if t not in username_characters:
+    #         print(message_list[3])
+    #         fail = True
+    #         break
+    # if fail:
+    #     continue
+    # print(message_list[0])
+    # break
 
 
-
-#print(test_password ("Jalindu789@"))
