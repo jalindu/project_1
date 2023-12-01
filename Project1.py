@@ -33,14 +33,13 @@ while True:
     entered_username = input("Please enter your username: ")# Get username input
     entered_password = input("Please enter your password: ") # Get password input
 
-# Begin username testing to test for whether it begins with an uppercase letter, since only lowercase is allowed
+# Begin username testing to check for whether username is taken
 
     test_uppercase = entered_username[0].isupper()
     if test_uppercase:
         print(message_list[0])
         continue
-
-# Test username allowed characters to ensure characters match those in the list of accepted characters
+# Test username allowed characters to complete registration
     register_username = bool(re.match("^[A-Za-z0-9_]*$", entered_username))
     if not register_username:
         print(message_list[0])
@@ -53,7 +52,7 @@ while True:
         print(message_list[1])
         continue
 
-# Password Length Test - test whether password is at least 8 characters long
+# Password Length Test
 
     pw_length_test = len(entered_password) >= 8
     if not pw_length_test:
@@ -64,11 +63,13 @@ while True:
     if register_password:
         print(message_list[3])
         
+
 # Ensuring Registration
     username_registration = entered_username
     password_registration = entered_password
     print(message_list[3])
     
+
 # Login to Website
     username_login = input("Username: Please enter your username to login: ")
     password_login = input("Password: Please enter your password to login: ")
@@ -77,7 +78,3 @@ while True:
         break
     else:
         print(message_list[5])
-    
-    
-
-
