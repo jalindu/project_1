@@ -62,7 +62,7 @@ while True:
     register_password = bool(re.match("^[A-Za-z0-9_!?@#$^&*_-]*$", entered_password))
     if register_password:
         print(message_list[3])
-        break
+        continue
 
 # Ensuring Registration
     username_registration = entered_username
