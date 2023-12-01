@@ -22,42 +22,61 @@ import re
 # Initializing all variables
 username, password, entered_username, entered_password = '', '', '', ''
 
-# List of taken usernames
-taken_usernames = ['admin', 'admin123','root']
-
-# Acceptable characters in username input
-username_characters = '0123456789abcdefghijklmnopqrstuvwxyz_'
-
 # Acceptable special characters in password input
 password_symbols = '!?@#$^&*_-'
 
 # Appropriate messages to print for user guidance
-message_list = ['Sign up successful', 'Login successful', 'Username taken','Invalid username', 'Invalid password', 'Incorrect username or password']
+message_list = ['Invalid Username', 'Username Taken', 'Invalid Password','Signup Successful', 'Login Successful', 'Incorrect username or password']
 
 # Prompt user to sign up on website
 
 while True:
-    entered_username = input("Please enter your username: ")# Get inputs
+    entered_username = input("Please enter your username: ")# Get username input
+    entered_password = input("Please enter your password: ") # Get password input
 
-    # Begin username testing to check for whether username is taken
+# Begin username testing to check for whether username is taken
 
-    if entered_username in taken_usernames:
-        print(message_list[3])
+    test_uppercase = entered_username[0].isupper()
+    if test_uppercase:
+        print(message_list[0])
         continue
+# Test username allowed characters to complete registration
+    register_username = bool(re.match("^[A-Za-z0-9_]*$", entered_username))
+    if not register_username:
+        print(message_list[0])
+        continue
+
+# List of taken usernames
+    taken_usernames = ['admin', 'admin123','root']
+    usernames_taken_test = entered_username in taken_usernames
+    if usernames_taken_test:
+        print(message_list[1])
+        continue
+
+# Password Length Test
+
+    pw_length_test = len(entered_password) >= 8
+    if not pw_length_test:
+        print(message_list[2])
+        continue
+# Test password registration
+    register_password = bool(re.match("^[A-Za-z0-9_!?@#$^&*_-]*$", entered_password))
+    if register_password:
+        print(message_list[3])
+        break
+
+# Ensuring Registration
+    username_registration = entered_username
+    password_registration = entered_password
+    print(message_list[3])
+
+# Signing into Website
+    username = input("Username: Please enter your username: ")
+    password = input("Password: Please enter your password: ")
+    if username == username_registration and password == password_registration:
+        print(message_list[4])
+        break
+    else:
+        print(message_list[5])
     
-    print("I am here")
-    break
-
-    # fail = False
-    # # Test for whether username contains acceptable characters
-    # for t in entered_username:
-    #     if t not in username_characters:
-    #         print(message_list[3])
-    #         fail = True
-    #         break
-    # if fail:
-    #     continue
-    # print(message_list[0])
-    # break
-
 
