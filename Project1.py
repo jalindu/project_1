@@ -33,7 +33,7 @@ while True:
     entered_username = input("Please enter your username: ")# Get username input
     entered_password = input("Please enter your password: ") # Get password input
 
-# Begin username testing to check for whether username is taken
+# Begin username testing username for whether it is uppercase, since only lowercase should be allowed
 
     test_uppercase = entered_username[0].isupper()
     if test_uppercase:
@@ -77,4 +77,4 @@ while True:
         print(message_list[4])
         break
     else:
-        print(message_list[5])
+        print(message_list[4])
