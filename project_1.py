@@ -76,7 +76,7 @@ while True:
         print(message_list[4])
         break
     else:
-        print(message_list[4])
+        print(message_list[5])
     
     
 
